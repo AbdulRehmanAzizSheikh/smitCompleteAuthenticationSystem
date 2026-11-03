@@ -94,7 +94,7 @@ export default function OtpInput({
   }
 
   return (
-    <div className={cn("flex items-center gap-2 sm:gap-2.5", shake && "animate-shake")} role="group" aria-label={ariaLabel}>
+    <div className={cn("grid grid-cols-6 gap-2 sm:gap-3", shake && "animate-shake")} role="group" aria-label={ariaLabel}>
       {chars.map((char, i) => (
         <input
           key={i}

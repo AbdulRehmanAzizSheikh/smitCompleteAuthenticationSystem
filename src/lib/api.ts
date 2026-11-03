@@ -19,6 +19,15 @@ export function handleRouteError(error: unknown, context: string) {
     return apiFail(422, "Please fix the highlighted fields.", { fieldErrors: flattenIssues(error) });
   }
   console.error(`[${context}]`, error);
+
+  // Temporary debugging: set DEBUG_ERRORS=true in Vercel env vars to surface the
+  // real error message on the live site (remove after diagnosing).
+  if (process.env.DEBUG_ERRORS === "true") {
+    const detail =
+      error instanceof Error ? `${error.name}: ${error.message}` : String(error);
+    return apiFail(500, `Server error (${context}): ${detail}`);
+  }
+
   return apiFail(500, "Something went wrong on our side. Please try again.");
 }
 
