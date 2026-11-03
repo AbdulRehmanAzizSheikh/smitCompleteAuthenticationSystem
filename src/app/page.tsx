@@ -103,7 +103,7 @@ export default function HomePage() {
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Register in four steps</h2>
         </div>
 
-        <ol className="mt-12 grid gap-4 md:grid-cols-4">
+        <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((step, i) => (
             <li key={i} className="glass relative p-6">
               <span className="absolute right-5 top-4 font-mono text-4xl font-black text-white/10">0{i + 1}</span>
