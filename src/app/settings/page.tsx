@@ -1,12 +1,15 @@
 ﻿import type { Metadata } from "next";
-import { AtSign, KeyRound, Mail, UserRoundPen, ShieldCheck } from "lucide-react";
+import { AtSign, KeyRound, Mail, UserRoundPen, ShieldCheck, Palette, Trash2 } from "lucide-react";
 import { requireUser } from "@/lib/dal";
 import { maskEmail } from "@/lib/utils";
+import { isThemeId } from "@/lib/theme";
 import SettingsSection from "@/components/SettingsSection";
 import DisplayNameForm from "@/components/forms/DisplayNameForm";
 import UsernameChangeForm from "@/components/forms/UsernameChangeForm";
 import EmailChangeForm from "@/components/forms/EmailChangeForm";
 import PasswordChangeForm from "@/components/forms/PasswordChangeForm";
+import ThemeSection from "@/components/forms/ThemeSection";
+import DangerZoneForm from "@/components/forms/DangerZoneForm";
 
 export const metadata: Metadata = {
   title: "Settings",
@@ -68,6 +71,16 @@ export default async function SettingsPage() {
         </SettingsSection>
 
         <SettingsSection
+          id="theme"
+          icon={Palette}
+          tint="text-fuchsia-300"
+          title="Theme"
+          subtitle="Pick your look — saved to your account and applied everywhere, instantly."
+        >
+          <ThemeSection initialTheme={isThemeId(user.theme) ? user.theme : "theme-1"} />
+        </SettingsSection>
+
+        <SettingsSection
           id="password"
           icon={KeyRound}
           tint="text-emerald-300"
@@ -75,6 +88,16 @@ export default async function SettingsPage() {
           subtitle="Changing your password requires the current one. We'll email you a confirmation afterwards."
         >
           <PasswordChangeForm />
+        </SettingsSection>
+
+        <SettingsSection
+          id="delete-account"
+          icon={Trash2}
+          tint="text-rose-300"
+          title="Danger zone"
+          subtitle="Permanently delete your account and all its data. Requires an emailed code — like other sensitive changes."
+        >
+          <DangerZoneForm maskedEmail={masked} />
         </SettingsSection>
       </div>
     </div>

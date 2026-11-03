@@ -94,6 +94,8 @@ export const usernameChangeVerifySchema = z.object({ otp: otpCodeSchema });
 export const emailChangeStartSchema = z.object({ newEmail: emailSchema });
 export const emailChangeVerifyOldSchema = z.object({ otp: otpCodeSchema });
 export const emailChangeVerifyNewSchema = z.object({ otp: otpCodeSchema });
+export const accountDeleteVerifySchema = z.object({ otp: otpCodeSchema });
+export const themeUpdateSchema = z.object({ theme: z.enum(["theme-1", "theme-2", "theme-3"]) });
 
 /** Flattens zod errors into { field: message } for API responses. */
 export function flattenIssues(error: z.ZodError) {

@@ -10,7 +10,7 @@ export default function AuthShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="mx-auto grid min-h-[calc(100vh-4.5rem-1rem)] max-w-6xl grid-cols-1 content-center gap-6 px-4 pb-12 pt-2 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:pt-4">
       {/* â”€â”€ Brand panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <aside className="relative hidden overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#101736] via-[#131a3d] to-[#1b1030] p-10 lg:block" aria-hidden="true">
+      <aside className="auth-aside relative hidden overflow-hidden rounded-[2rem] p-10 lg:block" aria-hidden="true">
         {/* inner glows */}
         <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-violet-500/25 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />

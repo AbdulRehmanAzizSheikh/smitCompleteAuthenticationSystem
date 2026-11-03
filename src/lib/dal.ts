@@ -16,6 +16,7 @@ export interface CurrentUserDTO {
   username: string;
   displayName: string;
   email: string;
+  theme: "theme-1" | "theme-2" | "theme-3";
   createdAt: string;
 }
 
@@ -27,8 +28,8 @@ export const getCurrentUser = cache(async (): Promise<CurrentUserDTO | null> => 
   try {
     await connectDB();
     const user = await User.findById(session.userId)
-      .select("username displayName email createdAt")
-      .lean<{ _id: Types.ObjectId; username: string; displayName: string; email: string; createdAt: Date }>();
+      .select("username displayName email theme createdAt")
+      .lean<{ _id: Types.ObjectId; username: string; displayName: string; email: string; theme?: "theme-1" | "theme-2" | "theme-3"; createdAt: Date }>();
 
     if (!user) return null;
 
@@ -37,6 +38,7 @@ export const getCurrentUser = cache(async (): Promise<CurrentUserDTO | null> => 
       username: user.username,
       displayName: user.displayName,
       email: user.email,
+      theme: user.theme ?? "theme-1",
       createdAt: new Date(user.createdAt).toISOString(),
     };
   } catch (error) {

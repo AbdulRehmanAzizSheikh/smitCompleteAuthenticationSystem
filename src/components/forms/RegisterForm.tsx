@@ -16,6 +16,7 @@ import { toast } from "sonner";
 import PasswordInput from "@/components/PasswordInput";
 import OtpInput from "@/components/OtpInput";
 import { cn, maskEmail } from "@/lib/utils";
+import { THEME_STORAGE_KEY, isThemeId } from "@/lib/theme";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const USERNAME_RE = /^[a-z0-9_]{3,20}$/;
@@ -143,6 +144,19 @@ export default function RegisterForm() {
       }
 
       toast.success("Account created — welcome aboard!");
+      // If the user picked a theme before signing up, persist it to the new account
+      try {
+        const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
+        if (isThemeId(saved)) {
+          await fetch("/api/user/theme", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ theme: saved }),
+          });
+        }
+      } catch {
+        /* non-fatal */
+      }
       router.push("/dashboard");
       router.refresh();
     } catch {

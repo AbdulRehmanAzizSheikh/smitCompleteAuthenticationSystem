@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Toaster } from "sonner";
 import Background from "@/components/Background";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getCurrentUser } from "@/lib/dal";
+import { DEFAULT_THEME, isThemeId } from "@/lib/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -30,10 +32,15 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const user = await getCurrentUser();
+  const accountTheme = isThemeId(user?.theme) ? user.theme : DEFAULT_THEME;
 
   return (
-    <html lang="en">
+    <html lang="en" data-theme={accountTheme} suppressHydrationWarning>
       <body className="min-h-screen">
+        {/* Apply locally-saved theme before paint (logged-out or unsynced users) */}
+        <Script id="aegis-theme-init" strategy="beforeInteractive">
+          {`try{var t=window.localStorage.getItem('aegis-theme');if(t){document.documentElement.dataset.theme=t;}}catch(e){}`}
+        </Script>
         <Background />
         <Navbar user={user} />
         <main className="relative">{children}</main>

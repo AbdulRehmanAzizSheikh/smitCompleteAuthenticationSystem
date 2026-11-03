@@ -5,6 +5,7 @@ export interface IUser {
   displayName: string;
   email: string;
   password: string;
+  theme: "theme-1" | "theme-2" | "theme-3";
   createdAt: Date;
   updatedAt: Date;
 }
@@ -44,6 +45,11 @@ const userSchema = new Schema<IUser>(
       type: String,
       required: [true, "Password is required"],
       select: false, // never return password by default
+    },
+    theme: {
+      type: String,
+      enum: ["theme-1", "theme-2", "theme-3"],
+      default: "theme-1",
     },
   },
   { timestamps: true }

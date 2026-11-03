@@ -102,7 +102,7 @@ const otpBlock = (code: string) =>
      <p style="margin:12px 0 0;font-size:12px;color:#7c86a3;">Valid for <strong style="color:#c3cae3;">10 minutes</strong> &middot; single use</p>
    </div>`;
 
-export function otpEmail(params: { code: string; purpose: "register" | "forgot-password" | "username-change" | "email-change-old" | "email-change-new"; meta?: Record<string, unknown> }) {
+export function otpEmail(params: { code: string; purpose: "register" | "forgot-password" | "username-change" | "email-change-old" | "email-change-new" | "account-delete"; meta?: Record<string, unknown> }) {
   const { code, purpose, meta } = params;
 
   const copy: Record<typeof purpose, { subject: string; title: string; body: string }> = {
@@ -130,6 +130,11 @@ export function otpEmail(params: { code: string; purpose: "register" | "forgot-p
       subject: "Verify your new email — Aegis Auth",
       title: "Confirm your new email",
       body: "Almost done! Enter the code below to verify this inbox and complete the email change.",
+    },
+    "account-delete": {
+      subject: "Confirm account deletion — Aegis Auth",
+      title: "Delete your account?",
+      body: "We received a request to permanently delete your Aegis Auth account. This removes your profile, credentials and all account data — <strong style=\"color:#fff;\">it cannot be undone</strong>. Enter the code below only if you want to proceed.",
     },
   };
 
@@ -183,5 +188,19 @@ export function emailChangedEmail(params: { username: string; oldEmail: string; 
     subject: "Your email was changed — Aegis Auth",
     html,
     text: `Hi ${username}, your account email changed from ${oldEmail} to ${newEmail}. If this wasn't you, secure your account now.`,
+  };
+}
+
+export function accountDeletedEmail(params: { username: string; email: string }) {
+  const { username, email } = params;
+  const html = baseLayout(`
+    ${h1("Your account has been deleted")}
+    ${p(`Hi <strong style="color:#fff;">${username}</strong>, your Aegis Auth account (<strong style="color:#fff;">${email}</strong>) and all associated data were permanently deleted as requested.`)}
+    ${p("If you didn't request this deletion, contact support immediately — or simply sign up again with the same email address once the deletion is confirmed.")}
+  `);
+  return {
+    subject: "Your Aegis Auth account was deleted",
+    html,
+    text: `Hi ${username}, your Aegis Auth account (${email}) was permanently deleted. If this wasn't you, contact support immediately.`,
   };
 }

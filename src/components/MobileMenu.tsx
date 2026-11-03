@@ -21,7 +21,7 @@ export default function MobileMenu({ user }: { user: { displayName: string; emai
       </button>
 
       {open && (
-        <div className="absolute left-4 right-4 top-[4.5rem] rounded-2xl border border-white/12 bg-[#0b1128]/95 p-3 shadow-[0_24px_70px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+        <div className="mobile-panel absolute left-4 right-4 top-[4.5rem] rounded-2xl p-3">
           {user ? (
             <div className="flex flex-col gap-1">
               <p className="px-3 pb-2 pt-1 text-xs font-semibold uppercase tracking-widest text-mist-faint">

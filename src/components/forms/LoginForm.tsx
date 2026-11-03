@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Mail, Loader2, ArrowRight, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import PasswordInput from "@/components/PasswordInput";
+import { THEME_STORAGE_KEY, isThemeId } from "@/lib/theme";
 
 export default function LoginForm({ next }: { next?: string }) {
   const router = useRouter();
@@ -44,6 +45,19 @@ export default function LoginForm({ next }: { next?: string }) {
       }
 
       toast.success(`Welcome back, ${data.user?.displayName ?? data.user?.username}!`);
+      // If the user picked a theme before signing in, persist it to their account
+      try {
+        const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
+        if (isThemeId(saved)) {
+          await fetch("/api/user/theme", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ theme: saved }),
+          });
+        }
+      } catch {
+        /* non-fatal */
+      }
       router.push(next && next.startsWith("/") ? next : "/dashboard");
       router.refresh();
     } catch {

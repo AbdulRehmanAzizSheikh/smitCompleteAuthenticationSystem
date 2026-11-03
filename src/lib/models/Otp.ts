@@ -11,6 +11,7 @@ export const OTP_PURPOSES = [
   "username-change",
   "email-change-old",
   "email-change-new",
+  "account-delete",
 ] as const;
 
 export type OtpPurpose = (typeof OTP_PURPOSES)[number];
