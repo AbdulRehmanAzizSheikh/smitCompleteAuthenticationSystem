@@ -1,10 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <footer className="border-t border-white/5 bg-[#04060f]/60">
-      <div className="mx-auto max-w-6xl px-4 py-12">
+      <div className="mx-auto max-w-[1680px] px-4 py-12">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="max-w-xs">
@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="text-base font-extrabold tracking-tight text-white">Aegis Auth</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-mist-faint">
-              A complete, bootcamp-grade authentication system — email OTP verification, JWT sessions, and a glass-smooth experience.
+              A complete, bootcamp-grade authentication system â€” email OTP verification, JWT sessions, and a glass-smooth experience.
             </p>
           </div>
 
@@ -38,16 +38,16 @@ export default function Footer() {
             <div>
               <p className="text-[0.7rem] font-bold uppercase tracking-[0.18em] text-mist-faint">Stack</p>
               <ul className="mt-3 space-y-2 text-mist-dim">
-                <li>Next.js 16 · React 19</li>
-                <li>MongoDB · Mongoose</li>
-                <li>JWT · bcrypt · Nodemailer</li>
+                <li>Next.js 16 Â· React 19</li>
+                <li>MongoDB Â· Mongoose</li>
+                <li>JWT Â· bcrypt Â· Nodemailer</li>
               </ul>
             </div>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/5 pt-6 text-xs text-mist-faint sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Aegis Auth · Built for the SIT Bootcamp.</p>
+          <p>Â© {new Date().getFullYear()} Aegis Auth Â· Built for the SIT Bootcamp.</p>
           <p className="flex items-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse-dot" />
             All systems operational

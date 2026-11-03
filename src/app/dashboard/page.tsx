@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Link from "next/link";
 import {
   AtSign,
@@ -24,7 +24,7 @@ import LogoutButton from "@/components/LogoutButton";
 
 export const metadata: Metadata = {
   title: "Overview",
-  description: "Your Aegis Auth account at a glance — profile, security posture and quick actions.",
+  description: "Your Aegis Auth account at a glance â€” profile, security posture and quick actions.",
 };
 
 export const dynamic = "force-dynamic";
@@ -36,8 +36,8 @@ export default async function DashboardPage() {
   const accountAgeDays = Math.max(1, Math.floor((Date.now() - memberSince.getTime()) / 86_400_000));
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-20 pt-6 sm:pt-8">
-      {/* ── Header ─────────────────────────────────────────── */}
+    <div className="mx-auto max-w-[1680px] px-4 pb-20 sm:px-6 lg:px-8 pt-6 sm:pt-8">
+      {/* â”€â”€ Header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <div className="glass flex flex-col gap-6 !rounded-[2rem] p-6 sm:flex-row sm:items-center sm:p-8">
         <div
           className="flex h-20 w-20 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-sky-400 via-violet-400 to-pink-400 text-2xl font-black text-[#0b1020] shadow-[0_10px_35px_rgba(167,139,250,0.4)]"
@@ -54,7 +54,7 @@ export default async function DashboardPage() {
           </h1>
           <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-mist-dim">
             <span className="inline-flex items-center gap-1.5"><AtSign className="h-4 w-4" />{user.username}</span>
-            <span className="hidden text-mist-faint sm:inline">•</span>
+            <span className="hidden text-mist-faint sm:inline">â€¢</span>
             <span className="inline-flex items-center gap-1.5"><CalendarDays className="h-4 w-4" />Member since {memberSinceLabel}</span>
           </p>
         </div>
@@ -64,7 +64,7 @@ export default async function DashboardPage() {
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
-        {/* ── LEFT: overview + security ─────────────────────── */}
+        {/* â”€â”€ LEFT: overview + security â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="space-y-6 lg:col-span-2">
           <section className="glass p-6 sm:p-7" aria-labelledby="overview-heading">
             <div className="flex items-center justify-between gap-4">
@@ -78,7 +78,7 @@ export default async function DashboardPage() {
               <Row label="Display name" value={user.displayName} />
               <Row label="Username" value={`@${user.username}`} copy={user.username} />
               <Row label="Email" value={user.email} copy={user.email} />
-              <Row label="Account ID" value={user.id.slice(0, 8) + "…" + user.id.slice(-6)} copy={user.id} mono />
+              <Row label="Account ID" value={user.id.slice(0, 8) + "â€¦" + user.id.slice(-6)} copy={user.id} mono />
             </dl>
           </section>
 
@@ -87,22 +87,22 @@ export default async function DashboardPage() {
               <ShieldCheck className="h-5 w-5 text-emerald-300" /> Security posture
             </h2>
             <ul className="mt-5 space-y-3">
-              <SecurityRow icon={Fingerprint} tint="text-violet-300" title="Password hashing" detail="bcrypt · cost factor 12 · never stored in plain text" />
-              <SecurityRow icon={RefreshCw} tint="text-sky-300" title="Session handling" detail="httpOnly JWT · SameSite=Lax · sliding 7-day expiry, refreshed on every visit" />
-              <SecurityRow icon={Timer} tint="text-pink-300" title="OTP policy" detail="6 digits · 10-minute TTL · bcrypt-hashed · auto-deleted by MongoDB TTL index" />
-              <SecurityRow icon={ListFilter} tint="text-amber-300" title="Brute-force control" detail="5 wrong OTP attempts lock the code · per-IP & per-email rate limiting" />
+              <SecurityRow icon={Fingerprint} tint="text-violet-300" title="Password hashing" detail="bcrypt Â· cost factor 12 Â· never stored in plain text" />
+              <SecurityRow icon={RefreshCw} tint="text-sky-300" title="Session handling" detail="httpOnly JWT Â· SameSite=Lax Â· sliding 7-day expiry, refreshed on every visit" />
+              <SecurityRow icon={Timer} tint="text-pink-300" title="OTP policy" detail="6 digits Â· 10-minute TTL Â· bcrypt-hashed Â· auto-deleted by MongoDB TTL index" />
+              <SecurityRow icon={ListFilter} tint="text-amber-300" title="Brute-force control" detail="5 wrong OTP attempts lock the code Â· per-IP & per-email rate limiting" />
             </ul>
           </section>
         </div>
 
-        {/* ── RIGHT: quick actions + session ────────────────── */}
+        {/* â”€â”€ RIGHT: quick actions + session â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
         <div className="space-y-6">
           <section className="glass p-6" aria-labelledby="actions-heading">
             <h2 id="actions-heading" className="text-lg font-extrabold text-white">Quick actions</h2>
             <ul className="mt-4 space-y-2">
-              <QuickAction href="/settings#display-name" icon={UserRoundPen} label="Change display name" hint="Instant — no code needed" />
+              <QuickAction href="/settings#display-name" icon={UserRoundPen} label="Change display name" hint="Instant â€” no code needed" />
               <QuickAction href="/settings#username" icon={AtSign} label="Change username" hint="Email OTP required" />
-              <QuickAction href="/settings#email" icon={Mail} label="Change email" hint="2 codes — old + new inbox" />
+              <QuickAction href="/settings#email" icon={Mail} label="Change email" hint="2 codes â€” old + new inbox" />
               <QuickAction href="/settings#password" icon={KeyRound} label="Change password" hint="Current password required" />
             </ul>
           </section>
@@ -132,7 +132,7 @@ export default async function DashboardPage() {
   );
 }
 
-/* ───────────── bits ───────────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ bits â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
 function Row({ label, value, copy, mono = false }: { label: string; value: string; copy?: string; mono?: boolean }) {
   return (

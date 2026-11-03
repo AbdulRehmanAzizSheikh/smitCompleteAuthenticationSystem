@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import {
   MailCheck,
   KeyRound,
@@ -19,22 +19,22 @@ import {
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
-      {/* ───────── HERO ───────── */}
-      <section className="relative mx-auto max-w-6xl px-4 pb-20 pt-6 text-center sm:pt-10">
+      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <section className="relative mx-auto max-w-[1680px] px-4 pb-20 sm:px-6 lg:px-8 pt-6 text-center sm:pt-10">
         <div className="animate-fade-up">
           <span className="glass-pill mx-auto inline-flex items-center gap-2 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-violet-200">
             <Sparkles className="h-3.5 w-3.5 text-pink-300" />
-            SIT Bootcamp — Complete Auth System
+            SIT Bootcamp â€” Complete Auth System
           </span>
         </div>
 
-        <h1 className="animate-fade-up delay-1 mx-auto mt-7 max-w-4xl text-[2.6rem] font-extrabold leading-[1.06] tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl">
+        <h1 className="animate-fade-up delay-1 mx-auto mt-7 max-w-5xl text-[2.6rem] font-extrabold leading-[1.06] tracking-[-0.03em] text-white sm:text-6xl lg:text-7xl">
           Authentication that feels <span className="gradient-text">effortless.</span>
         </h1>
 
         <p className="animate-fade-up delay-2 mx-auto mt-6 max-w-2xl text-base leading-relaxed text-mist-dim sm:text-lg">
           Register with email OTP verification, sign in with email <em>or</em> username, and manage
-          your account with military-grade security — wrapped in a glass-smooth experience.
+          your account with military-grade security â€” wrapped in a glass-smooth experience.
         </p>
 
         <div className="animate-fade-up delay-3 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -48,7 +48,7 @@ export default function HomePage() {
         </div>
 
         <p className="animate-fade-up delay-4 mt-5 text-xs font-medium uppercase tracking-[0.18em] text-mist-faint">
-          10-min OTP · Sliding JWT · bcrypt-12 · Zero shortcuts
+          10-min OTP Â· Sliding JWT Â· bcrypt-12 Â· Zero shortcuts
         </p>
 
         {/* Floating preview card */}
@@ -69,13 +69,13 @@ export default function HomePage() {
             <BadgeCheck className="h-4 w-4 text-sky-300" /> OTP verified
           </div>
           <div className="glass-soft animate-float-late absolute -right-2 -top-2 hidden items-center gap-2 px-4 py-2.5 text-xs font-semibold text-violet-200 md:flex">
-            <RefreshCw className="h-4 w-4 text-violet-300" /> Session renewed · 7d
+            <RefreshCw className="h-4 w-4 text-violet-300" /> Session renewed Â· 7d
           </div>
         </div>
       </section>
 
-      {/* ───────── FEATURES ───────── */}
-      <section id="features" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16">
+      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ FEATURES â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <section id="features" className="mx-auto max-w-[1680px] scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-violet-300">What's inside</p>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
@@ -96,8 +96,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ───────── HOW IT WORKS ───────── */}
-      <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16">
+      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ HOW IT WORKS â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <section id="how-it-works" className="mx-auto max-w-[1680px] scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-sky-300">The flow</p>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Register in four steps</h2>
@@ -117,15 +117,15 @@ export default function HomePage() {
         </ol>
       </section>
 
-      {/* ───────── SECURITY ───────── */}
-      <section id="security" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16">
+      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ SECURITY â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <section id="security" className="mx-auto max-w-[1680px] scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
         <div className="glass overflow-hidden !rounded-[2rem]">
           <div className="grid lg:grid-cols-2">
             <div className="p-8 sm:p-12">
               <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-pink-300">Under the hood</p>
               <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white">Security isn't a feature.<br />It's the foundation.</h2>
               <p className="mt-3 max-w-md text-mist-dim">
-                Every layer was built assuming someone will try to break it — so nothing was left to chance.
+                Every layer was built assuming someone will try to break it â€” so nothing was left to chance.
               </p>
               <ul className="mt-8 space-y-4">
                 {SECURITY_POINTS.map((point) => (
@@ -145,14 +145,14 @@ export default function HomePage() {
                   <Fingerprint className="h-8 w-8 text-violet-300" />
                   <div>
                     <p className="text-[0.68rem] uppercase tracking-[0.18em] text-mist-faint">Credential check</p>
-                    <p className="font-bold text-white">bcrypt · cost factor 12</p>
+                    <p className="font-bold text-white">bcrypt Â· cost factor 12</p>
                   </div>
                 </div>
                 <div className="glass-soft mt-4 flex items-center gap-4 p-4">
                   <Timer className="h-8 w-8 text-sky-300" />
                   <div>
                     <p className="text-[0.68rem] uppercase tracking-[0.18em] text-mist-faint">OTP lifetime</p>
-                    <p className="font-bold text-white">10 minutes · auto-deleted (TTL)</p>
+                    <p className="font-bold text-white">10 minutes Â· auto-deleted (TTL)</p>
                   </div>
                 </div>
                 <div className="glass-soft mt-4 flex items-center gap-4 p-4">
@@ -166,7 +166,7 @@ export default function HomePage() {
                   <Lock className="h-8 w-8 text-emerald-300" />
                   <div>
                     <p className="text-[0.68rem] uppercase tracking-[0.18em] text-mist-faint">Session</p>
-                    <p className="font-bold text-white">httpOnly JWT · sliding 7 days</p>
+                    <p className="font-bold text-white">httpOnly JWT Â· sliding 7 days</p>
                   </div>
                 </div>
               </div>
@@ -175,14 +175,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ───────── CTA ───────── */}
-      <section className="mx-auto max-w-4xl px-4 py-16 text-center">
+      {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
           Ready to <span className="gradient-text">experience it?</span>
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-mist-dim">Create your account in under a minute — your inbox will do the rest.</p>
+        <p className="mx-auto mt-3 max-w-md text-mist-dim">Create your account in under a minute â€” your inbox will do the rest.</p>
         <Link href="/register" className="btn-primary mx-auto mt-7 !px-8 !py-4 !text-base">
-          Get started — it's free
+          Get started â€” it's free
           <ArrowRight className="h-5 w-5" />
         </Link>
       </section>
@@ -191,26 +191,26 @@ export default function HomePage() {
 }
 
 const FEATURES = [
-  { icon: MailCheck, title: "Email OTP verification", desc: "6-digit codes delivered via Hostinger SMTP — verified before your account is ever created." },
+  { icon: MailCheck, title: "Email OTP verification", desc: "6-digit codes delivered via Hostinger SMTP â€” verified before your account is ever created." },
   { icon: KeyRound, title: "Sign in with email or username", desc: "One identifier, your choice. Either works, always case-insensitive." },
   { icon: RefreshCw, title: "Sliding 7-day sessions", desc: "JWT re-issued on every visit; expires only after a full week away." },
-  { icon: ShieldCheck, title: "Forgot & reset password", desc: "OTP-authorised reset flow — the old password never blocks you again." },
+  { icon: ShieldCheck, title: "Forgot & reset password", desc: "OTP-authorised reset flow â€” the old password never blocks you again." },
   { icon: AtSign, title: "Secure email change", desc: "Authorise on your current inbox, verify the new one. Two codes, zero hijacks." },
   { icon: UserRoundPen, title: "Username & display name", desc: "Display name changes instantly; usernames change with email OTP confirmation." },
 ];
 
 const STEPS = [
-  { icon: UserRoundPen, title: "Fill the form", desc: "Username, email, password — plus a live strength meter and show/hide toggle." },
+  { icon: UserRoundPen, title: "Fill the form", desc: "Username, email, password â€” plus a live strength meter and show/hide toggle." },
   { icon: MailCheck, title: "Verify your email", desc: "We send a 6-digit code via Nodemailer and store it hashed in a separate collection." },
-  { icon: Timer, title: "Code expires in 10 min", desc: "The OTP record self-destructs via a MongoDB TTL index — nothing lingers." },
+  { icon: Timer, title: "Code expires in 10 min", desc: "The OTP record self-destructs via a MongoDB TTL index â€” nothing lingers." },
   { icon: BadgeCheck, title: "Account created", desc: "We verify the code, create the account, email a welcome note, and sign you in." },
 ];
 
 const SECURITY_POINTS = [
-  "Passwords hashed with bcrypt at cost factor 12 — never stored in plain text.",
+  "Passwords hashed with bcrypt at cost factor 12 â€” never stored in plain text.",
   "OTPs are bcrypt-hashed too, limited to 5 wrong attempts, and expire after 10 minutes.",
-  "Sliding httpOnly JWT (SameSite=Lax) — invisible to JavaScript, immune to XSS theft.",
+  "Sliding httpOnly JWT (SameSite=Lax) â€” invisible to JavaScript, immune to XSS theft.",
   "Per-IP and per-email rate limits on every sensitive endpoint.",
-  "OTP stored in a dedicated collection with a MongoDB TTL index — auto-deleted on expiry.",
+  "OTP stored in a dedicated collection with a MongoDB TTL index â€” auto-deleted on expiry.",
   "Security headers (X-Frame-Options, nosniff, Referrer-Policy) on every response.",
 ];

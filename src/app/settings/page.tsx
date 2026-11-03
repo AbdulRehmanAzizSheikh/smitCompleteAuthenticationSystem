@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { AtSign, KeyRound, Mail, UserRoundPen, ShieldCheck } from "lucide-react";
 import { requireUser } from "@/lib/dal";
 import { maskEmail } from "@/lib/utils";
@@ -10,7 +10,7 @@ import PasswordChangeForm from "@/components/forms/PasswordChangeForm";
 
 export const metadata: Metadata = {
   title: "Settings",
-  description: "Manage your display name, username, email and password — every change is verified and secure.",
+  description: "Manage your display name, username, email and password â€” every change is verified and secure.",
 };
 
 export const dynamic = "force-dynamic";
@@ -20,14 +20,14 @@ export default async function SettingsPage() {
   const masked = maskEmail(user.email);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 pb-20 pt-6 sm:pt-8">
+    <div className="mx-auto max-w-[1680px] px-4 pb-20 sm:px-6 lg:px-8 pt-6 sm:pt-8">
       {/* Header */}
       <div className="flex items-start justify-between gap-6">
         <div>
           <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-violet-300">Settings</p>
           <h1 className="mt-1.5 text-3xl font-extrabold tracking-tight text-white">Account & security</h1>
           <p className="mt-1.5 max-w-lg text-sm leading-relaxed text-mist-dim">
-            Display names update instantly. Everything else is guarded by a 10-minute, single-use email code —
+            Display names update instantly. Everything else is guarded by a 10-minute, single-use email code â€”
             or your current password for the crown-jewel stuff.
           </p>
         </div>
@@ -52,7 +52,7 @@ export default async function SettingsPage() {
           icon={AtSign}
           tint="text-violet-300"
           title="Username"
-          subtitle="Usernames are unique and permanent-ish — changing one requires a code sent to your current inbox."
+          subtitle="Usernames are unique and permanent-ish â€” changing one requires a code sent to your current inbox."
         >
           <UsernameChangeForm currentUsername={user.username} maskedEmail={masked} />
         </SettingsSection>
