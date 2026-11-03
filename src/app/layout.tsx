@@ -41,6 +41,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <Toaster
           theme="dark"
           position="top-center"
+          offset={84} /* keep clear of the fixed glass navbar */
           toastOptions={{
             style: {
               background: "rgba(17, 24, 51, 0.92)",

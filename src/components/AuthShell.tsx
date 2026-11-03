@@ -8,7 +8,7 @@ import Logo from "./Logo";
  */
 export default function AuthShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto grid min-h-screen max-w-6xl grid-cols-1 items-center gap-6 px-4 pb-12 pt-20 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:pt-16">
+    <div className="mx-auto grid min-h-[calc(100vh-4.5rem)] max-w-6xl grid-cols-1 content-center gap-6 px-4 pb-12 pt-20 sm:px-6 lg:grid-cols-2 lg:gap-10 lg:pt-4">
       {/* ── Brand panel ─────────────────────────────────────────── */}
       <aside className="relative hidden overflow-hidden rounded-[2rem] border border-white/10 bg-gradient-to-br from-[#101736] via-[#131a3d] to-[#1b1030] p-10 lg:block" aria-hidden="true">
         {/* inner glows */}
