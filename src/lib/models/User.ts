@@ -5,7 +5,7 @@ export interface IUser {
   displayName: string;
   email: string;
   password: string;
-  theme: "theme-1" | "theme-2" | "theme-3";
+  theme: "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5";
   createdAt: Date;
   updatedAt: Date;
 }
@@ -48,7 +48,7 @@ const userSchema = new Schema<IUser>(
     },
     theme: {
       type: String,
-      enum: ["theme-1", "theme-2", "theme-3"],
+      enum: ["theme-1", "theme-2", "theme-3", "theme-4", "theme-5"],
       default: "theme-1",
     },
   },

@@ -24,7 +24,7 @@ export default function ThemeSection({ initialTheme }: { initialTheme: ThemeId }
   }
 
   return (
-    <div className="grid gap-3 sm:grid-cols-3">
+    <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
       {THEMES.map((theme) => {
         const isActive = active === theme.id;
         return (

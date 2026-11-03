@@ -28,6 +28,22 @@ export const THEMES = [
     swatch: "linear-gradient(150deg,#4c1d95,#7e22ce,#db2777)",
     tile: "linear-gradient(150deg,rgba(255,255,255,.3),rgba(255,255,255,.08))",
   },
+  {
+    id: "theme-4",
+    name: "Theme 4",
+    label: "Gradient Glass",
+    description: "Featherlight glass on a vivid blue gradient canvas.",
+    swatch: "linear-gradient(150deg,#e0f2fe 0%,#dbeafe 35%,#60a5fa 75%,#06b6d4 100%)",
+    tile: "linear-gradient(150deg,#ffffff,#e2e8f0)",
+  },
+  {
+    id: "theme-5",
+    name: "Theme 5",
+    label: "Liquid Glass",
+    description: "macOS Control Center — dark frosted panels over a moody scene.",
+    swatch: "linear-gradient(160deg,#0b3b39 0%,#0e2a35 45%,#081c26 100%)",
+    tile: "linear-gradient(150deg,rgba(255,255,255,.22),rgba(255,255,255,.06))",
+  },
 ] as const;
 
 export type ThemeId = (typeof THEMES)[number]["id"];
