@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ HERO â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <section className="relative mx-auto max-w-[1680px] px-4 pb-20 sm:px-6 lg:px-8 pt-6 text-center sm:pt-10">
+      <section className="relative mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8 pt-6 text-center sm:pt-10">
         <div className="animate-fade-up">
           <span className="glass-pill mx-auto inline-flex items-center gap-2 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-violet-200">
             <Sparkles className="h-3.5 w-3.5 text-pink-300" />
@@ -75,7 +75,7 @@ export default function HomePage() {
       </section>
 
       {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ FEATURES â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <section id="features" className="mx-auto max-w-[1680px] scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
+      <section id="features" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-violet-300">What's inside</p>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
@@ -97,7 +97,7 @@ export default function HomePage() {
       </section>
 
       {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ HOW IT WORKS â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <section id="how-it-works" className="mx-auto max-w-[1680px] scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
+      <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="text-[0.7rem] font-bold uppercase tracking-[0.24em] text-sky-300">The flow</p>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Register in four steps</h2>
@@ -118,7 +118,7 @@ export default function HomePage() {
       </section>
 
       {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ SECURITY â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
-      <section id="security" className="mx-auto max-w-[1680px] scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
+      <section id="security" className="mx-auto max-w-6xl scroll-mt-28 px-4 py-16 sm:px-6 lg:px-8">
         <div className="glass overflow-hidden !rounded-[2rem]">
           <div className="grid lg:grid-cols-2">
             <div className="p-8 sm:p-12">

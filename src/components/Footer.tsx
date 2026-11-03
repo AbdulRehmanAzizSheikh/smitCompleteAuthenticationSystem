@@ -4,7 +4,7 @@ import Logo from "./Logo";
 export default function Footer() {
   return (
     <footer className="border-t border-white/5 bg-[#04060f]/60">
-      <div className="mx-auto max-w-[1680px] px-4 py-12">
+      <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
           {/* Brand */}
           <div className="max-w-xs">
