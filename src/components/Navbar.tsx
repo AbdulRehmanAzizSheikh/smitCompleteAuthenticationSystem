@@ -15,7 +15,7 @@ export default function Navbar({ user }: { user: CurrentUserDTO | null }) {
   const theme: ThemeId = user?.theme ?? DEFAULT_THEME;
 
   return (
-    <header className="sticky top-0 z-40">
+    <header className="sticky top-3 z-40 sm:top-4">
       <div className="mx-auto max-w-6xl px-4">
         <div className="pointer-events-auto mt-4 flex h-14 items-center justify-between gap-3 rounded-2xl px-3 sm:px-4 navbar-bar">
           {/* Brand */}
