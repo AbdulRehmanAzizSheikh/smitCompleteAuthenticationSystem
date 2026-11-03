@@ -11,7 +11,7 @@ import type { CurrentUserDTO } from "@/lib/dal";
  */
 export default function Navbar({ user }: { user: CurrentUserDTO | null }) {
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
+    <header className="sticky top-0 z-40">
       <div className="mx-auto max-w-6xl px-4">
         <div className="pointer-events-auto mt-4 flex h-14 items-center justify-between gap-3 rounded-2xl border border-white/10 bg-[#0b1128]/70 px-3 shadow-[0_18px_60px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-2xl sm:px-4">
           {/* Brand */}

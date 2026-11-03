@@ -10,7 +10,7 @@ export default function MobileMenu({ user }: { user: { displayName: string; emai
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="md:hidden">
+    <div className="relative md:hidden">
       <button
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close menu" : "Open menu"}

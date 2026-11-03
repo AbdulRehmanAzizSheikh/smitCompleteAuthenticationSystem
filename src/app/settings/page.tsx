@@ -20,7 +20,7 @@ export default async function SettingsPage() {
   const masked = maskEmail(user.email);
 
   return (
-    <div className="mx-auto max-w-4xl px-4 pb-20 pt-28">
+    <div className="mx-auto max-w-4xl px-4 pb-20 pt-6 sm:pt-8">
       {/* Header */}
       <div className="flex items-start justify-between gap-6">
         <div>

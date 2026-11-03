@@ -20,7 +20,7 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ───────── HERO ───────── */}
-      <section className="relative mx-auto max-w-6xl px-4 pb-20 pt-32 text-center sm:pt-36">
+      <section className="relative mx-auto max-w-6xl px-4 pb-20 pt-6 text-center sm:pt-10">
         <div className="animate-fade-up">
           <span className="glass-pill mx-auto inline-flex items-center gap-2 px-4 py-2 text-[0.68rem] font-bold uppercase tracking-[0.2em] text-violet-200">
             <Sparkles className="h-3.5 w-3.5 text-pink-300" />

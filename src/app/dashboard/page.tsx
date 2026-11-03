@@ -36,7 +36,7 @@ export default async function DashboardPage() {
   const accountAgeDays = Math.max(1, Math.floor((Date.now() - memberSince.getTime()) / 86_400_000));
 
   return (
-    <div className="mx-auto max-w-6xl px-4 pb-20 pt-28">
+    <div className="mx-auto max-w-6xl px-4 pb-20 pt-6 sm:pt-8">
       {/* ── Header ─────────────────────────────────────────── */}
       <div className="glass flex flex-col gap-6 !rounded-[2rem] p-6 sm:flex-row sm:items-center sm:p-8">
         <div
