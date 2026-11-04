@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { cookies } from "next/headers";
 import { Toaster } from "sonner";
 import Background from "@/components/Background";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getCurrentUser } from "@/lib/dal";
-import { DEFAULT_THEME, isThemeId } from "@/lib/theme";
+import { resolveAppearance, parseAppearanceCookie, APPEARANCE_COOKIE } from "@/lib/appearance";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -31,18 +32,33 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const user = await getCurrentUser();
-  const accountTheme = isThemeId(user?.theme) ? user.theme : DEFAULT_THEME;
+  const [user, cookieStore] = await Promise.all([getCurrentUser(), cookies()]);
+  const cookieAppearance = parseAppearanceCookie(cookieStore.get(APPEARANCE_COOKIE)?.value);
+
+  const appearance = resolveAppearance(
+    user
+      ? { theme: user.theme, mode: user.mode, layout: user.layout, buttons: user.buttons, icons: user.icons }
+      : undefined,
+    cookieAppearance
+  );
 
   return (
-    <html lang="en" data-theme={accountTheme} suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme={appearance.theme}
+      data-mode={appearance.mode}
+      data-layout={appearance.layout}
+      data-buttons={appearance.buttons}
+      data-icons={appearance.icons}
+      suppressHydrationWarning
+    >
       <body className="min-h-screen">
-        {/* Apply locally-saved theme before paint (logged-out or unsynced users) */}
-        <Script id="aegis-theme-init" strategy="beforeInteractive">
-          {`try{var t=window.localStorage.getItem('aegis-theme');if(t){document.documentElement.dataset.theme=t;}}catch(e){}`}
+        {/* Apply locally-fixed appearance before paint (guests only); auto/rotate defer to the server */}
+        <Script id="aegis-appearance-init" strategy="beforeInteractive">
+          {`try{var raw=localStorage.getItem('aegis-appearance');if(raw){var a=JSON.parse(raw);if(!a.mode||a.mode==='fixed'){['theme','mode','layout','buttons','icons'].forEach(function(k){if(a[k]){document.documentElement.dataset[k]=a[k];}});}}}catch(e){}`}
         </Script>
         <Background />
-        <Navbar user={user} />
+        <Navbar user={user} currentTheme={appearance.theme} />
         <main className="relative">{children}</main>
         <Footer />
         <Toaster

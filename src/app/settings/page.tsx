@@ -2,13 +2,12 @@
 import { AtSign, KeyRound, Mail, UserRoundPen, ShieldCheck, Palette, Trash2 } from "lucide-react";
 import { requireUser } from "@/lib/dal";
 import { maskEmail } from "@/lib/utils";
-import { isThemeId } from "@/lib/theme";
 import SettingsSection from "@/components/SettingsSection";
 import DisplayNameForm from "@/components/forms/DisplayNameForm";
 import UsernameChangeForm from "@/components/forms/UsernameChangeForm";
 import EmailChangeForm from "@/components/forms/EmailChangeForm";
 import PasswordChangeForm from "@/components/forms/PasswordChangeForm";
-import ThemeSection from "@/components/forms/ThemeSection";
+import AppearanceSection from "@/components/forms/AppearanceSection";
 import DangerZoneForm from "@/components/forms/DangerZoneForm";
 
 export const metadata: Metadata = {
@@ -71,13 +70,21 @@ export default async function SettingsPage() {
         </SettingsSection>
 
         <SettingsSection
-          id="theme"
+          id="appearance"
           icon={Palette}
           tint="text-fuchsia-300"
-          title="Theme"
-          subtitle="Pick your look — saved to your account and applied everywhere, instantly."
+          title="Appearance"
+          subtitle="Theme, mode, layout, buttons and icons — every part applies instantly and syncs to your account."
         >
-          <ThemeSection initialTheme={isThemeId(user.theme) ? user.theme : "theme-1"} />
+          <AppearanceSection
+            initial={{
+              theme: user.theme,
+              mode: user.mode,
+              layout: user.layout,
+              buttons: user.buttons,
+              icons: user.icons,
+            }}
+          />
         </SettingsSection>
 
         <SettingsSection

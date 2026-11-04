@@ -95,7 +95,15 @@ export const emailChangeStartSchema = z.object({ newEmail: emailSchema });
 export const emailChangeVerifyOldSchema = z.object({ otp: otpCodeSchema });
 export const emailChangeVerifyNewSchema = z.object({ otp: otpCodeSchema });
 export const accountDeleteVerifySchema = z.object({ otp: otpCodeSchema });
-export const themeUpdateSchema = z.object({ theme: z.enum(["theme-1", "theme-2", "theme-3", "theme-4", "theme-5"]) });
+export const appearanceUpdateSchema = z
+  .object({
+    theme: z.enum(["theme-1", "theme-2", "theme-3", "theme-4", "theme-5"]).optional(),
+    mode: z.enum(["auto", "rotate", "fixed"]).optional(),
+    layout: z.enum(["layout-1", "layout-2", "layout-3"]).optional(),
+    buttons: z.enum(["buttons-1", "buttons-2", "buttons-3", "buttons-4", "buttons-5"]).optional(),
+    icons: z.enum(["icons-1", "icons-2", "icons-3", "icons-4", "icons-5"]).optional(),
+  })
+  .refine((obj) => Object.values(obj).some((v) => v !== undefined), { message: "At least one part is required" });
 
 /** Flattens zod errors into { field: message } for API responses. */
 export function flattenIssues(error: z.ZodError) {

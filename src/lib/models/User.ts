@@ -6,6 +6,10 @@ export interface IUser {
   email: string;
   password: string;
   theme: "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5";
+  mode: "auto" | "rotate" | "fixed";
+  layout: "layout-1" | "layout-2" | "layout-3";
+  buttons: "buttons-1" | "buttons-2" | "buttons-3" | "buttons-4" | "buttons-5";
+  icons: "icons-1" | "icons-2" | "icons-3" | "icons-4" | "icons-5";
   createdAt: Date;
   updatedAt: Date;
 }
@@ -50,6 +54,26 @@ const userSchema = new Schema<IUser>(
       type: String,
       enum: ["theme-1", "theme-2", "theme-3", "theme-4", "theme-5"],
       default: "theme-1",
+    },
+    mode: {
+      type: String,
+      enum: ["auto", "rotate", "fixed"],
+      default: "auto",
+    },
+    layout: {
+      type: String,
+      enum: ["layout-1", "layout-2", "layout-3"],
+      default: "layout-1",
+    },
+    buttons: {
+      type: String,
+      enum: ["buttons-1", "buttons-2", "buttons-3", "buttons-4", "buttons-5"],
+      default: "buttons-1",
+    },
+    icons: {
+      type: String,
+      enum: ["icons-1", "icons-2", "icons-3", "icons-4", "icons-5"],
+      default: "icons-1",
     },
   },
   { timestamps: true }

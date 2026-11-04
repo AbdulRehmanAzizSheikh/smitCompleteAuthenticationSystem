@@ -1,18 +1,25 @@
 ﻿import Link from "next/link";
+import { cookies } from "next/headers";
 import Logo from "./Logo";
 import LogoutButton from "./LogoutButton";
 import MobileMenu from "./MobileMenu";
 import ThemeToggle from "./ThemeToggle";
+import FixThemeButton from "./FixThemeButton";
 import { getInitials } from "@/lib/utils";
 import { DEFAULT_THEME, type ThemeId } from "@/lib/theme";
+import { parseAppearanceCookie, APPEARANCE_COOKIE } from "@/lib/appearance";
 import type { CurrentUserDTO } from "@/lib/dal";
 
 /**
  * Session-aware glass navigation bar.
- * Receives the (possibly null) current user from the server layout/page.
+ * Receives the (possibly null) current user and the live/extracted theme from the server layout.
+ * Reads the appearance cookie to know if the user pinned their theme.
  */
-export default function Navbar({ user }: { user: CurrentUserDTO | null }) {
-  const theme: ThemeId = user?.theme ?? DEFAULT_THEME;
+export default async function Navbar({ user, currentTheme }: { user: CurrentUserDTO | null; currentTheme?: string }) {
+  const cookieStore = await cookies();
+  const cookieMode = parseAppearanceCookie(cookieStore.get(APPEARANCE_COOKIE)?.value).mode;
+  const pinned = user?.mode === "fixed" || cookieMode === "fixed";
+  const theme: ThemeId = (currentTheme as ThemeId | undefined) ?? user?.theme ?? DEFAULT_THEME;
 
   return (
     <header className="sticky top-3 z-40 sm:top-4">
@@ -40,6 +47,7 @@ export default function Navbar({ user }: { user: CurrentUserDTO | null }) {
                   Settings
                 </Link>
                 <ThemeToggle initialTheme={theme} isAuthed />
+                <FixThemeButton pinned={pinned} isAuthed />
                 <div className="mx-1 h-5 w-px bg-white/10" />
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-sky-400 via-violet-400 to-pink-400 text-[0.72rem] font-extrabold text-[#0b1020]" title={user.email}>
                   {getInitials(user.displayName || user.username)}
@@ -52,6 +60,7 @@ export default function Navbar({ user }: { user: CurrentUserDTO | null }) {
                   Sign in
                 </Link>
                 <ThemeToggle initialTheme={theme} isAuthed={false} />
+                <FixThemeButton pinned={pinned} isAuthed={false} />
                 <Link href="/register" className="btn-primary !px-5 !py-2 text-sm">
                   Get started
                 </Link>
@@ -59,8 +68,9 @@ export default function Navbar({ user }: { user: CurrentUserDTO | null }) {
             )}
           </nav>
 
-          {/* Mobile: theme toggle + hamburger (visible below md) */}
+          {/* Mobile: theme toggle + pin + hamburger (visible below md) */}
           <div className="flex items-center gap-2 md:hidden">
+            <FixThemeButton pinned={pinned} isAuthed={!!user} />
             <ThemeToggle initialTheme={theme} isAuthed={!!user} />
             <MobileMenu user={user ? { displayName: user.displayName, email: user.email } : null} />
           </div>

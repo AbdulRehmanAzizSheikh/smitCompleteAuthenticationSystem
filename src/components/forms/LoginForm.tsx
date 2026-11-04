@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Mail, Loader2, ArrowRight, AlertCircle } from "lucide-react";
 import { toast } from "sonner";
 import PasswordInput from "@/components/PasswordInput";
-import { THEME_STORAGE_KEY, isThemeId } from "@/lib/theme";
+import { getStoredAppearance } from "@/lib/appearance";
 
 export default function LoginForm({ next }: { next?: string }) {
   const router = useRouter();
@@ -45,14 +45,14 @@ export default function LoginForm({ next }: { next?: string }) {
       }
 
       toast.success(`Welcome back, ${data.user?.displayName ?? data.user?.username}!`);
-      // If the user picked a theme before signing in, persist it to their account
+      // If the guest picked an appearance before signing in, persist it to their account
       try {
-        const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
-        if (isThemeId(saved)) {
-          await fetch("/api/user/theme", {
+        const saved = getStoredAppearance();
+        if (saved && Object.keys(saved).length > 0) {
+          await fetch("/api/user/appearance", {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ theme: saved }),
+            body: JSON.stringify(saved),
           });
         }
       } catch {
