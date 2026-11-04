@@ -97,7 +97,7 @@ export const emailChangeVerifyNewSchema = z.object({ otp: otpCodeSchema });
 export const accountDeleteVerifySchema = z.object({ otp: otpCodeSchema });
 export const appearanceUpdateSchema = z
   .object({
-    theme: z.enum(["theme-1", "theme-2", "theme-3", "theme-4", "theme-5"]).optional(),
+    theme: z.enum(["theme-1", "theme-2", "theme-3", "theme-4", "theme-5", "theme-6", "theme-7", "theme-8", "theme-9", "theme-10"]).optional(),
     mode: z.enum(["auto", "rotate", "fixed"]).optional(),
     layout: z.enum(["layout-1", "layout-2", "layout-3"]).optional(),
     buttons: z.enum(["buttons-1", "buttons-2", "buttons-3", "buttons-4", "buttons-5"]).optional(),

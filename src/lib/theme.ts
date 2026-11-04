@@ -44,6 +44,46 @@ export const THEMES = [
     swatch: "linear-gradient(160deg,#0b3b39 0%,#0e2a35 45%,#081c26 100%)",
     tile: "linear-gradient(150deg,rgba(255,255,255,.22),rgba(255,255,255,.06))",
   },
+  {
+    id: "theme-6",
+    name: "Theme 6",
+    label: "Noir Editorial",
+    description: "Midnight black, ivory ink and a whisper of gold — magazine luxury.",
+    swatch: "linear-gradient(150deg,#0d0d0f 0%,#17171c 55%,#1f1c16 100%)",
+    tile: "linear-gradient(150deg,rgba(212,175,55,.3),rgba(255,255,255,.04))",
+  },
+  {
+    id: "theme-7",
+    name: "Theme 7",
+    label: "Sakura Blush",
+    description: "Soft rose pastels, warm cream and dreamy light.",
+    swatch: "linear-gradient(150deg,#fdf2f7 0%,#fce7f0 45%,#fbcfe8 100%)",
+    tile: "linear-gradient(150deg,#ffffff,#fce7f0)",
+  },
+  {
+    id: "theme-8",
+    name: "Theme 8",
+    label: "Neon Circuit",
+    description: "Cyberpunk HUD — black space, cyan and magenta neon glow.",
+    swatch: "linear-gradient(150deg,#05070f 0%,#0d1220 45%,#1b0b26 100%)",
+    tile: "linear-gradient(150deg,rgba(34,211,238,.4),rgba(240,171,252,.18))",
+  },
+  {
+    id: "theme-9",
+    name: "Theme 9",
+    label: "Sage & Cream",
+    description: "Organic botanical minimal — warm cream with quiet sage.",
+    swatch: "linear-gradient(150deg,#f4f1ea 0%,#eef0e6 45%,#e4e9d8 100%)",
+    tile: "linear-gradient(150deg,#ffffff,#e9ede2)",
+  },
+  {
+    id: "theme-10",
+    name: "Theme 10",
+    label: "Arctic Aurora",
+    description: "Glacial white canvas lit by northern lights.",
+    swatch: "linear-gradient(150deg,#eef4fb 0%,#e0ecfa 40%,#d3f5ec 100%)",
+    tile: "linear-gradient(150deg,#ffffff,#e2ecf8)",
+  },
 ] as const;
 
 export type ThemeId = (typeof THEMES)[number]["id"];

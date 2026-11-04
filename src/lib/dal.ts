@@ -16,7 +16,7 @@ export interface CurrentUserDTO {
   username: string;
   displayName: string;
   email: string;
-  theme: "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5";
+  theme: "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5" | "theme-6" | "theme-7" | "theme-8" | "theme-9" | "theme-10";
   mode: "auto" | "rotate" | "fixed";
   layout: "layout-1" | "layout-2" | "layout-3";
   buttons: "buttons-1" | "buttons-2" | "buttons-3" | "buttons-4" | "buttons-5";
@@ -38,7 +38,7 @@ export const getCurrentUser = cache(async (): Promise<CurrentUserDTO | null> => 
         username: string;
         displayName: string;
         email: string;
-        theme?: "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5";
+        theme?: "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5" | "theme-6" | "theme-7" | "theme-8" | "theme-9" | "theme-10";
         mode?: "auto" | "rotate" | "fixed";
         layout?: "layout-1" | "layout-2" | "layout-3";
         buttons?: "buttons-1" | "buttons-2" | "buttons-3" | "buttons-4" | "buttons-5";

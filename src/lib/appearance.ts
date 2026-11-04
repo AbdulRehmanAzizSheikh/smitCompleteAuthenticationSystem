@@ -34,7 +34,7 @@ export const ICON_STYLES = [
 export type LayoutId = (typeof LAYOUTS)[number]["id"];
 export type ButtonId = (typeof BUTTON_STYLES)[number]["id"];
 export type IconId = (typeof ICON_STYLES)[number]["id"];
-export type ThemeIdLike = "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5";
+export type ThemeIdLike = "theme-1" | "theme-2" | "theme-3" | "theme-4" | "theme-5" | "theme-6" | "theme-7" | "theme-8" | "theme-9" | "theme-10";
 export type ThemeMode = "auto" | "rotate" | "fixed";
 
 export interface Appearance {
@@ -65,7 +65,7 @@ export const APPEARANCE_COOKIE = "aegis-appearance";
 export const LAYOUT_IDS = LAYOUTS.map((l) => l.id) as readonly LayoutId[];
 export const BUTTON_IDS = BUTTON_STYLES.map((b) => b.id) as readonly ButtonId[];
 export const ICON_IDS = ICON_STYLES.map((i) => i.id) as readonly IconId[];
-export const THEME_ID_LIST = ["theme-1", "theme-2", "theme-3", "theme-4", "theme-5"] as const;
+export const THEME_ID_LIST = ["theme-1", "theme-2", "theme-3", "theme-4", "theme-5", "theme-6", "theme-7", "theme-8", "theme-9", "theme-10"] as const;
 
 export function isThemeMode(v: unknown): v is ThemeMode {
   return v === "auto" || v === "rotate" || v === "fixed";

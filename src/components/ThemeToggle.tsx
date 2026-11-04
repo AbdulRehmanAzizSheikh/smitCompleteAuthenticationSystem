@@ -57,7 +57,7 @@ export default function ThemeToggle({ initialTheme, isAuthed }: { initialTheme: 
           role="dialog"
           aria-modal="false"
           aria-label="Choose theme"
-          className="mobile-panel absolute right-0 top-12 z-50 w-[min(26rem,calc(100vw-2rem))] overflow-hidden rounded-3xl p-4 sm:top-14 sm:w-[27rem]"
+          className="mobile-panel absolute right-0 top-12 z-50 w-[min(30rem,calc(100vw-2rem))] max-h-[80vh] overflow-y-auto rounded-3xl p-4 sm:top-14"
         >
           {/* Header */}
           <div className="flex items-center gap-3 border-b border-white/10 pb-3">
@@ -74,7 +74,7 @@ export default function ThemeToggle({ initialTheme, isAuthed }: { initialTheme: 
           </div>
 
           {/* Theme grid — proper card layout */}
-          <div className="grid grid-cols-2 gap-2.5 pt-3">
+          <div className="grid grid-cols-2 gap-2.5 pt-3 max-h-[62vh] overflow-y-auto pr-1 sm:grid-cols-3">
             {THEMES.map((theme) => {
               const selected = active === theme.id;
               return (
